@@ -6,6 +6,7 @@ import io
 import tensorflow_hub as hub
 import base64
 import pandas as pd
+import urllib.request
 
 label_dict = {0: 'affenpinscher',
     1: 'afghan_hound',
@@ -133,9 +134,14 @@ label_dict = {0: 'affenpinscher',
 @st.cache_resource
 def load_model():
     # Explicitly use custom_object_scope for KerasLayer from TensorFlow Hub
-    with tf.keras.utils.custom_object_scope({'KerasLayer': hub.KerasLayer}):
-        model = tf.keras.models.load_model(r'models/2024-05-14_16-41-38-all-images-Adam.h5')
-    return model
+    # with tf.keras.utils.custom_object_scope({'KerasLayer': hub.KerasLayer}):
+    #     model = tf.keras.models.load_model(r'models/2024-05-14_16-41-38-all-images-Adam.h5')
+    # return model
+
+
+    if not os.path.isfile('model.h5'):
+        urllib.request.urlretrieve('https://github.com/PrasadS25/Product-Engineering-Entrepreneurship/prod/models/2024-05-14_16-41-38-all-images-Adam.h5', 'model.h5')
+    return tensorflow.keras.models.load_model('model.h5')
     
 model = load_model()
 
