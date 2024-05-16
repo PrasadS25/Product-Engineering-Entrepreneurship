@@ -7,6 +7,7 @@ import tensorflow_hub as hub
 import base64
 import pandas as pd
 import urllib.request
+import os
 
 label_dict = {0: 'affenpinscher',
     1: 'afghan_hound',
