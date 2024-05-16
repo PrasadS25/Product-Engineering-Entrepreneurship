@@ -135,14 +135,16 @@ label_dict = {0: 'affenpinscher',
 @st.cache_resource
 def load_model():
     # Explicitly use custom_object_scope for KerasLayer from TensorFlow Hub
-    # with tf.keras.utils.custom_object_scope({'KerasLayer': hub.KerasLayer}):
+    # 85
     #     model = tf.keras.models.load_model(r'models/2024-05-14_16-41-38-all-images-Adam.h5')
     # return model
 
 
     if not os.path.isfile('model.h5'):
         urllib.request.urlretrieve('https://github.com/PrasadS25/Product-Engineering-Entrepreneurship/raw/main/prod/models/2024-05-14_16-41-38-all-images-Adam.h5', 'model.h5')
-    return tf.keras.models.load_model('model.h5')
+        with tf.keras.utils.custom_object_scope({'KerasLayer': hub.KerasLayer}):
+            model = tf.keras.models.load_model('model.h5')
+    return model
     
 model = load_model()
 
