@@ -142,7 +142,7 @@ def load_model():
 
     if not os.path.isfile('model.h5'):
         urllib.request.urlretrieve('https://github.com/PrasadS25/Product-Engineering-Entrepreneurship/blob/main/prod/models/2024-05-14_16-41-38-all-images-Adam.h5', 'model.h5')
-    return tensorflow.keras.models.load_model('model.h5')
+    return tf.keras.models.load_model('model.h5')
     
 model = load_model()
 
