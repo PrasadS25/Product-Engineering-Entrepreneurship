@@ -1,5 +1,5 @@
 tensorflow == 2.10.0
-streamlit == 1.24.0
+streamlit
 numpy == 1.26.4
 tensorflow_hub == 0.16.1
 pandas == 2.2.2
