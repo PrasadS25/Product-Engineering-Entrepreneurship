@@ -161,9 +161,9 @@ def import_and_predict(image_data, model):
     
     # Create a table to display the predictions
     table_data = []
-    for idx in top_5_indices:
-        breed_label = label_dict[idx]
-        probability = prediction[idx]
+    for ind in top_5_indices:
+        breed_label = label_dict[ind]
+        probability = prediction[ind]
         table_data.append([breed_label, f"{probability:.2%}"])
     
     # Convert the table data to a DataFrame
@@ -177,8 +177,8 @@ def run():
 
     st.markdown(
         """
-        <h1 style="text-align: center;">DOG VISION</h1>
-        <h4 style="text-align: center; color: #d73b5c;">The trained data consists of a collection of 10,000+ labeled images of 120 different dog breeds.</h4>
+        <h1 style="text-align: center;">DOG BREED PREDICTION APP</h1>
+        <h4 style="text-align: center; color: #3c78f4;">An App to predict the Breed of the dog using an Image of the Dog.</h4>
         """,
         unsafe_allow_html=True
     )
@@ -188,7 +188,7 @@ def run():
     st.markdown(
         """
         <h3 style="text-align: center;">Upload an Image</h3>
-        <p style="text-align: center;">Please upload an image of a dog to analyze its breed.</p>
+        <p style="text-align: center;">Please upload an image of a dog to find its breed.</p>
         """,
         unsafe_allow_html=True
     )
