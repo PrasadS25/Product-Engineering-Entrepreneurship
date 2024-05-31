@@ -223,7 +223,7 @@ def run():
         st.markdown('---')
         
         # Provide a clickable link to open Google search results
-        search_query = f"{breed_label} dog images"
+        search_query = f"{breed_label} dog wiki"
         search_url = f"https://www.google.com/search?q={search_query}&tbm=isch"
         link_html = f'<div style="text-align: center;"><a href="{search_url}" target="_blank" style="display: inline-block; text-align: center; cursor: pointer; color: #FF5733;">🐶 Click here to view Google search results</a></div>'
         st.markdown(link_html, unsafe_allow_html=True)
